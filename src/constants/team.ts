@@ -4,7 +4,7 @@ export const students: Array<Member> = [
   {
     name: "Madushan P. B. A. P",
     avatar: {
-      url: require("../public/avatars/anjana.jpeg"),
+      url: require("../public/avatars/anjana.png"),
       alt: "Madushan's avatar",
     },
     contact: {

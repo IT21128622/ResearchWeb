@@ -73,7 +73,7 @@ const Hero = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-center relative z-10 gap-2">
-        <Link href={"/download"} target="_self">
+        <Link href={"https://cric-boost.vercel.app"} target="_self">
           <MagicButton
             className="w-72 lg:w-80"
             title="Get Started"

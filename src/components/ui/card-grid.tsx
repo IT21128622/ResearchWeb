@@ -63,7 +63,11 @@ export const CardGridItem = ({
 
   const handleDownload = () => {
     if (link) {
-      window.open(link, "_blank");
+      const anchor = document.createElement("a");
+      anchor.href = link;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      anchor.click();
     }
   };
 
@@ -89,10 +93,17 @@ export const CardGridItem = ({
         <div className="py-1 text-gray-300 text-center">{children}</div>
       </div>
       <div className="flex justify-center">
-        <MagicButton title={"Download"} icon={<FiDownload size={20} />} onClick={handleDownload} className="mt-4">
-          Download
-        </MagicButton>
-      </div>
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-4"
+  >
+    <MagicButton title={"Download"} icon={<FiDownload size={20} />}>
+      Download
+    </MagicButton>
+  </a>
+</div>
     </div>
   );
 };

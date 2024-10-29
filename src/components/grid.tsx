@@ -33,6 +33,7 @@ import {
 import { DiOnedrive } from "react-icons/di";
 import Link from "next/link";
 import { CardGrid, CardGridItem } from "./ui/card-grid";
+import ContactUsForm from "./ui/contact-us-form";
 
 const Grid = () => {
   const ResearchGapElements = () => {
@@ -395,6 +396,11 @@ const Grid = () => {
             )
           )}
         </BentoGrid>
+      </section>
+
+      <section id="contact-us" className="min-h-screen py-16">
+        <h2 className="text-[40px] font-bold my-10 text-center">Contact Us</h2>
+        <ContactUsForm/>
       </section>
     </div>
   );

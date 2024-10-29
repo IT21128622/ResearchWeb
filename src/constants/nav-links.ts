@@ -21,4 +21,8 @@ export const navItems: NavBar = [
     name: "Team",
     link: "#team",
   },
+  {
+    name: "Contact Us",
+    link: "#contact-us",
+  },
 ];

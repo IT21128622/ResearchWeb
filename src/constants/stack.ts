@@ -2,18 +2,18 @@ import { StackItem } from "@/@types";
 
 export const leftStack: Array<StackItem> = [
   {
-    name: "React Native",
+    name: "Next Js",
     image: {
-      url: require("../public/react.svg"),
+      url: require("../public/nextjs.svg"),
       height: 40,
       width: 40,
     },
     className: "bg-gradient-to-r from-purple/20 to-purple-300",
   },
   {
-    name: "Express",
+    name: "Python",
     image: {
-      url: require("../public/nodejs-icon.svg"),
+      url: require("../public/python.svg"),
       height: 150,
       width: 150,
     },
@@ -68,9 +68,9 @@ export const rightStack: Array<StackItem> = [
     className: "bg-gradient-to-r from-purple/20 to-purple-300",
   },
   {
-    name: "Azure",
+    name: "Open CV",
     image: {
-      url: require("../public/microsoft-azure.svg"),
+      url: require("../public/opencv.svg"),
       height: 200,
       width: 200,
     },
