@@ -34,6 +34,8 @@ import { DiOnedrive } from "react-icons/di";
 import Link from "next/link";
 import { CardGrid, CardGridItem } from "./ui/card-grid";
 import ContactUsForm from "./ui/contact-us-form";
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
 
 const Grid = () => {
   const ResearchGapElements = () => {
@@ -138,87 +140,108 @@ const Grid = () => {
     );
   };
 
-  const TeamElements = () => {
-    return (
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2" id="leftPanel">
-          <h1 className="text-[28px] font-medium ml-6">Developers</h1>
-          <div className="flex flex-col gap-2 my-2 p-4">
-            {students.map((person) => {
-              return (
-                <div
-                  className="bg-gradient-to-r from-purple/10 to-purple-300 rounded-xl flex gap-4 py-5"
-                  key={person.name}
-                >
-                  <div className="w-1/4 flex items-center justify-center p-2">
-                    <Image
-                      className="w-14 h-14 md:w-20 md:h-20 rounded-full"
-                      src={person.avatar.url}
-                      alt={person.avatar.alt}
-                    />
-                  </div>
-                  <div className="w-3/4 flex flex-col gap-1">
-                    <h1 className="font-semibold">{person.name}</h1>
-                    <div className="flex items-center gap-2">
-                      {person.tags.map((each) => (
-                        <MagicButton
-                          className="h-8 text-xs rounded-full cursor-default"
-                          icon={<GoDot />}
-                          title={each}
-                          key={each}
-                        />
-                      ))}
-                    </div>
-                    <h1 className="font-medium text-lg">{person.position}</h1>
-                    <h1 className="font-light">{person.organization}</h1>
-                    <h1 className="font-semibold">{person.department}</h1>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+ 
 
-        <div className="w-full lg:w-1/2" id="rightPanel">
-          <h1 className="text-[28px] font-medium ml-6">Supervisors</h1>
-          <div className="flex flex-col gap-2 my-2 p-4">
-            {supervisors.map((person) => {
-              return (
-                <div
-                  className="bg-gradient-to-l from-purple/10 to-purple-300 rounded-xl flex gap-4 py-5"
-                  key={person.name}
-                >
-                  <div className="w-1/4 flex items-center justify-center">
-                    <Image
-                      className="w-14 h-14 md:w-20 md:h-20 rounded-full"
-                      src={person.avatar.url}
-                      alt={person.avatar.alt}
-                    />
+const TeamElements = () => {
+  return (
+    <div className="flex flex-col lg:flex-row">
+      <div className="w-full lg:w-1/2" id="leftPanel">
+        <h1 className="text-[28px] font-medium ml-6">Developers</h1>
+        <div className="flex flex-col gap-2 my-2 p-4">
+          {students.map((person) => {
+            return (
+              <div
+                className="bg-gradient-to-r from-purple/10 to-purple-300 rounded-xl flex gap-4 py-5"
+                key={person.name}
+              >
+                <div className="w-1/4 flex items-center justify-center p-2">
+                  <Image
+                    className="w-14 h-14 md:w-20 md:h-20 rounded-full"
+                    src={person.avatar.url}
+                    alt={person.avatar.alt}
+                  />
+                </div>
+                <div className="w-3/4 flex flex-col gap-1">
+                  <h1 className="font-semibold">{person.name}</h1>
+                  <div className="flex items-center gap-2">
+                    {person.tags.map((each) => (
+                      <MagicButton
+                        className="h-8 text-xs rounded-full cursor-default"
+                        icon={<GoDot />}
+                        title={each}
+                        key={each}
+                      />
+                    ))}
                   </div>
-                  <div className="w-3/4 flex flex-col gap-1 p-2">
-                    <h1 className="font-semibold">{person.name}</h1>
-                    <div className="flex items-center gap-2">
-                      {person.tags.map((each) => (
-                        <MagicButton
-                          className="h-8 text-xs rounded-full cursor-default"
-                          icon={<GoDot />}
-                          title={each}
-                          key={each}
-                        />
-                      ))}
-                    </div>
-                    <h1 className="font-medium text-lg">{person.position}</h1>
-                    <h1 className="font-light">{person.organization}</h1>
-                    <h1 className="font-semibold">{person.department}</h1>
+                  <h1 className="font-medium text-lg">{person.position}</h1>
+                  <h1 className="font-light">{person.organization}</h1>
+                  <h1 className="font-semibold">{person.department}</h1>
+                  {/* Add LinkedIn and Email icons */}
+                  <div className="flex gap-4 mt-2">
+                    <a href={`mailto:${person.contact.email}`} aria-label="Email">
+                      <FaEnvelope className="text-gray-600 hover:text-purple-500" />
+                    </a>
+                    <a href={person.contact.linkedIn} aria-label="LinkedIn">
+                      <FaLinkedin className="text-gray-600 hover:text-purple-500" />
+                    </a>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-    );
-  };
+
+      <div className="w-full lg:w-1/2" id="rightPanel">
+        <h1 className="text-[28px] font-medium ml-6">Supervisors</h1>
+        <div className="flex flex-col gap-2 my-2 p-4">
+          {supervisors.map((person) => {
+            return (
+              <div
+                className="bg-gradient-to-l from-purple/10 to-purple-300 rounded-xl flex gap-4 py-5"
+                key={person.name}
+              >
+                <div className="w-1/4 flex items-center justify-center">
+                  <Image
+                    className="w-14 h-14 md:w-20 md:h-20 rounded-full"
+                    src={person.avatar.url}
+                    alt={person.avatar.alt}
+                  />
+                </div>
+                <div className="w-3/4 flex flex-col gap-1 p-2">
+                  <h1 className="font-semibold">{person.name}</h1>
+                  <div className="flex items-center gap-2">
+                    {person.tags.map((each) => (
+                      <MagicButton
+                        className="h-8 text-xs rounded-full cursor-default"
+                        icon={<GoDot />}
+                        title={each}
+                        key={each}
+                      />
+                    ))}
+                  </div>
+                  <h1 className="font-medium text-lg">{person.position}</h1>
+                  <h1 className="font-light">{person.organization}</h1>
+                  <h1 className="font-semibold">{person.department}</h1>
+                  {/* Add LinkedIn and Email icons */}
+                  <div className="flex gap-4 mt-2">
+                    <a href={`mailto:${person.contact.email}`} aria-label="Email">
+                      <FaEnvelope className="text-gray-600 hover:text-purple-500" />
+                    </a>
+                    <a href={person.contact.linkedIn} aria-label="LinkedIn">
+                      <FaLinkedin className="text-gray-600 hover:text-purple-500" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
   const MethodologyElements = () => {
     return (
       <div className="w-full h-full flex justify-center items-center ">
