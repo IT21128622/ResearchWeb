@@ -53,7 +53,7 @@ export const students: Array<Member> = [
       alt: "Nowen's avatar",
     },
     contact: {
-      linkedIn: "www.nowenkottage.com",
+      web: "www.nowenkottage.com",
       email: "it21013300@my.sliit.lk",
     },
     organization: "Sri Lanka Institute Of Information Technology",

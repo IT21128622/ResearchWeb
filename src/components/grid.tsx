@@ -35,7 +35,7 @@ import Link from "next/link";
 import { CardGrid, CardGridItem } from "./ui/card-grid";
 import ContactUsForm from "./ui/contact-us-form";
 import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
-
+import { TbWorld } from "react-icons/tb";
 
 const Grid = () => {
   const ResearchGapElements = () => {
@@ -176,14 +176,33 @@ const TeamElements = () => {
                   <h1 className="font-medium text-lg">{person.position}</h1>
                   <h1 className="font-light">{person.organization}</h1>
                   <h1 className="font-semibold">{person.department}</h1>
-                  {/* Add LinkedIn and Email icons */}
+                  {/* Conditionally render icons */}
                   <div className="flex gap-4 mt-2">
-                    <a href={`mailto:${person.contact.email}`} aria-label="Email">
-                      <FaEnvelope className="text-gray-600 hover:text-purple-500" />
-                    </a>
-                    <a href={person.contact.linkedIn} aria-label="LinkedIn">
-                      <FaLinkedin className="text-gray-600 hover:text-purple-500" />
-                    </a>
+                    {person.contact.email && (
+                      <a href={`mailto:${person.contact.email}`} aria-label="Email">
+                        <FaEnvelope className="text-gray-600 hover:text-purple-500" />
+                      </a>
+                    )}
+                    {person.contact.linkedIn && (
+                      <a
+                        href={person.contact.linkedIn}
+                        aria-label="LinkedIn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FaLinkedin className="text-gray-600 hover:text-purple-500" />
+                      </a>
+                    )}
+                    {person.contact.web && (
+                      <a
+                        href={person.contact.web}
+                        aria-label="Web"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <TbWorld className="text-gray-600 hover:text-purple-500" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

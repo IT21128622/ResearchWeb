@@ -34,7 +34,8 @@ export type Member = {
   position?: string;
   department: string;
   contact: {
-    linkedIn: string;
+    linkedIn?: string;
     email: string;
+    web?: string;
   };
 };
