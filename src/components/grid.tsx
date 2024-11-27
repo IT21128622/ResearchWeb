@@ -143,6 +143,13 @@ const Grid = () => {
  
 
 const TeamElements = () => {
+  const formatWebLink = (url: string): string => {
+    // Ensure the URL has a protocol (http or https)
+    if (!/^https?:\/\//i.test(url)) {
+      return `https://${url}`;
+    }
+    return url;
+  };
   return (
     <div className="flex flex-col lg:flex-row">
       <div className="w-full lg:w-1/2" id="leftPanel">
@@ -195,7 +202,7 @@ const TeamElements = () => {
                     )}
                     {person.contact.web && (
                       <a
-                        href={person.contact.web}
+                      href={formatWebLink(person.contact.web)}
                         aria-label="Web"
                         target="_blank"
                         rel="noopener noreferrer"
